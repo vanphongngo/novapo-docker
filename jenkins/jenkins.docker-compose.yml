@@ -1,0 +1,14 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+     - 10975:8080
+     - 10976:50000
+   container_name: jenkins
+   volumes:
+     - data_jenkins/home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+     - data_jenkins/var/run/docker.sock:/var/run/docker.sock
