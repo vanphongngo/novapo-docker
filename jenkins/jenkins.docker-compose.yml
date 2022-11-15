@@ -7,8 +7,8 @@ services:
     user: root
     ports:
      - 10975:8080
-     - 10976:50000
-   container_name: jenkins
-   volumes:
-     - data_jenkins/home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
-     - data_jenkins/var/run/docker.sock:/var/run/docker.sock
+    container_name: jenkins
+    volumes:
+     - ./data_jenkins/home/novapo/jenkins_compose/jenkins_configuration:/var/jenkins_home
+     - ./data_jenkins/var/run/docker.sock:/var/run/docker.sock
+     - ./data_jenkins/usr/local/bin/docker:/usr/local/bin/docker
