@@ -15,5 +15,5 @@ services:
   api_gateway:
     image: phongvanngo/dochero-api-gateway:latest
     ports:
-     - 3001:8082
+     - 3001:8080
     container_name: dochero-api-gateway
