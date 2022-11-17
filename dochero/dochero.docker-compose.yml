@@ -7,13 +7,13 @@ services:
     container_name: server-registry
 
   account_service:
-    image: phongvanngo/dochero-account-service:test
+    image: phongvanngo/dochero-account-service:latest
     ports:
      - 3002:8082
     container_name: dochero-account-service
   
   api_gateway:
-    image: phongvanngo/dochero-api-gateway:test
+    image: phongvanngo/dochero-api-gateway:latest
     ports:
      - 3001:8082
     container_name: dochero-api-gateway
