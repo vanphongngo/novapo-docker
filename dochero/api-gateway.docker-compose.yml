@@ -1,0 +1,8 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  api_gateway:
+    image: phongvanngo/dochero-api-gateway
+    ports:
+     - 3001:8082
+    container_name: dochero-api-gateway
