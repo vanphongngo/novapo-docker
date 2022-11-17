@@ -1,6 +1,11 @@
-# docker-compose.yaml
 version: '3.8'
 services:
+  server_registry:
+    image: phongvanngo/dochero-server-registry
+    ports:
+     - 3000:8761
+    container_name: server-registry
+    
   account_service:
     image: phongvanngo/dochero-account-service
     ports:
