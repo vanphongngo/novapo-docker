@@ -1,0 +1,8 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  server_registry:
+    image: phongvanngo/dochero-account-service
+    ports:
+     - 3002:8082
+    container_name: dochero-account-service
