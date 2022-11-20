@@ -3,7 +3,7 @@ version: "3.1"
 services:
   postgres:
     image: postgres
-    container_name: novapo_postgres
+    container_name: np_postgres
     restart: always
     environment:
       POSTGRES_PASSWORD: ksh@rk2022
@@ -13,6 +13,7 @@ services:
       - 54322:5432
 
   pgadmin:
+    container_name: np_pgadmin
     image: dpage/pgadmin4
     restart: always
     ports:
