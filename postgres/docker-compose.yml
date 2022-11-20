@@ -1,23 +1,41 @@
-version: "3.1"
+version: '3.8'
 
 services:
   postgres:
-    image: postgres
     container_name: np_postgres
-    restart: always
+    image: postgres
     environment:
-      POSTGRES_PASSWORD: ksh@rk2022
-      POSTGRES_DB: postgres
-      POSTGRES_USER: novapo
+      POSTGRES_USER: ksharkinc
+      POSTGRES_PASSWORD: ksharkinc2022
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
     ports:
-      - 54322:5432
-
+      - "54322:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  
   pgadmin:
     container_name: np_pgadmin
     image: dpage/pgadmin4
-    restart: always
-    ports:
-      - 54323:80
     environment:
-      PGADMIN_DEFAULT_EMAIL: user@domain.com
-      PGADMIN_DEFAULT_PASSWORD: supersecrect
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-novapo@kshark.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-ksharkinc2022}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+
+    ports:
+      - "54323:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
+    pgadmin:
