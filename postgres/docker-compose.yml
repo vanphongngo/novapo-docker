@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres
+    container_name: novapo_postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ksh@rk2022
+      POSTGRES_DB: postgres
+      POSTGRES_USER: novapo
+    ports:
+      - 54322:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 54323:8080
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: supersecrect
