@@ -1,0 +1,8 @@
+services:
+  mongo:
+    container_name: np_mongodb
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ksharkinc
+      MONGO_INITDB_ROOT_PASSWORD: ksharkinc2022
