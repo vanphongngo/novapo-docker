@@ -1,11 +1,11 @@
 db.createUser(
     {
-        user: "quan5",
-        pwd: "quan5_password",
+        user: "first_db",
+        pwd: "ksharkinc2022",
         roles: [
             {
                 role: "dbOwner",
-                db: "quan5"
+                db: "first_db"
             }
         ]
     }
