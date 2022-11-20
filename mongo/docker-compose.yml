@@ -12,5 +12,5 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ksharkinc
       - MONGO_INITDB_ROOT_PASSWORD=ksharkinc2022
-      - MONGO_INITDB_DATABASE=first_db
+      - MONGO_INITDB_DATABASE=mongo
 

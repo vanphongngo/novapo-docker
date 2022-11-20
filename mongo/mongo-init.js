@@ -1,11 +1,11 @@
 db.createUser(
     {
-        user: "first_db",
+        user: "mongo",
         pwd: "ksharkinc2022",
         roles: [
             {
                 role: "dbOwner",
-                db: "first_db"
+                db: "mongo"
             }
         ]
     }
