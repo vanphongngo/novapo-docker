@@ -7,6 +7,9 @@ services:
       - '${PORT_ZOOKEEPER}:2181'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - kafka-network
+
   kafka:
     container_name: kafka 
     image: 'bitnami/kafka:latest'
@@ -26,3 +29,9 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
+    networks:
+      - kafka-network
+      
+networks:
+  kafka-network:
+    driver: bridge
