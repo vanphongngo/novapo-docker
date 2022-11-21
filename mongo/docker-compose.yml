@@ -1,14 +1,13 @@
 version: '3'
 services:
   mongodb:
-    env_file:
-      - mongo.local.env
+    # env_file: mongo.local.env
     restart: always
     container_name: np_mongo
     image: mongo
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-      - "${BASE_URL_DATA}:/data/db"
+      - ${BASE_URL_DATA}:/data/db
       # - ./../../np_data/data_mongo/db:/data/db
     ports:
       - "54324:27017"
