@@ -1,21 +1,6 @@
 version: '3'
 
-services:
-  postgres:
-    container_name: np_postgres
-    image: postgres
-    environment:
-      POSTGRES_USER: ksharkinc
-      POSTGRES_PASSWORD: ksharkinc2022
-      PGDATA: /data/postgres
-    volumes:
-       - postgres:/data/postgres
-    ports:
-      - "54322:5432"
-    networks:
-      - postgres
-    restart: unless-stopped
-  
+services:  
   pgadmin:
     container_name: np_pgadmin
     image: dpage/pgadmin4
@@ -31,14 +16,5 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-
-networks:
-  postgres:
-    driver: bridge
-
-volumes:
-    postgres:
-    pgadmin:
-
 
     # https://github.com/khezen/compose-postgres/blob/master/docker-compose.yml

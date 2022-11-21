@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: np_postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ksharkinc
+      POSTGRES_PASSWORD: ksharkinc2022
+      PGDATA: /data/postgres
+    volumes:
+       - ${BASE_URL_DATA}:/data/postgres
+    ports:
+      - "54322:5432"
+    restart: unless-stopped
+
+
+    # https://github.com/khezen/compose-postgres/blob/master/docker-compose.yml
