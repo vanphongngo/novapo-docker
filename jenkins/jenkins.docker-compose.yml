@@ -6,7 +6,7 @@ services:
     privileged: true
     user: root
     ports:
-     - 10975:8080
+     - ${JENKINS_PORT}:8080
     container_name: jenkins
     volumes:
      - ./data_jenkins/home/novapo/jenkins_compose/jenkins_configuration:/var/jenkins_home
