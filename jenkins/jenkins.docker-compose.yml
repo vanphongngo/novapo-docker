@@ -9,6 +9,6 @@ services:
      - ${JENKINS_PORT}:8080
     container_name: jenkins
     volumes:
-     - ./data_jenkins/home/novapo/jenkins_compose/jenkins_configuration:/var/jenkins_home
-     - ./data_jenkins/var/run/docker.sock:/var/run/docker.sock
-     - ./data_jenkins/usr/local/bin/docker:/usr/local/bin/docker
+     - ${JENKINS_DATA_PATH}/home/novapo/jenkins_compose/jenkins_configuration:/var/jenkins_home
+     - ${JENKINS_DATA_PATH}/var/run/docker.sock:/var/run/docker.sock
+     - ${JENKINS_DATA_PATH}/usr/local/bin/docker:/usr/local/bin/docker
