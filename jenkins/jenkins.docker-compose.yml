@@ -2,13 +2,12 @@
 version: '3.8'
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins
     privileged: true
     user: root
     ports:
-     - ${JENKINS_PORT}:8080
+     - 8080:8080
+     - 50000:50000
     container_name: jenkins
     volumes:
-     - ${JENKINS_DATA_PATH}/home/novapo/jenkins_compose/jenkins_configuration:/var/jenkins_home
-     - ${JENKINS_DATA_PATH}/var/run/docker.sock:/var/run/docker.sock
-     - ${JENKINS_DATA_PATH}/usr/local/bin/docker:/usr/local/bin/docker
+     - ${JENKINS_DATA_PATH}/your/home:/var/jenkins_home
