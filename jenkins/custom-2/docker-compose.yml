@@ -1,0 +1,14 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  jenkins:
+    build: .
+    privileged: true
+    user: root
+    ports:
+     - 8081:8080
+     - 50001:50000
+    container_name: jenkins_02
+    volumes:
+     - ${JENKINS_DATA_PATH}/your/home:/var/jenkins_home
+     - /var/run/docker.sock:/var/run/docker.sock
