@@ -2,18 +2,29 @@ version: '3.8'
 services:
   server_registry:
     image: phongvanngo/dochero-server-registry:latest
-    ports:
-     - 3000:8761
     container_name: server-registry
+    environment:
+      - SERVER_PORT=${SERVER_REGISTRY_INTERNAL_PORT}
+    ports:
+      - ${SERVER_REGISTRY_PORT}:${SERVER_REGISTRY_INTERNAL_PORT}    
 
   account_service:
     image: phongvanngo/dochero-account-service:latest
-    ports:
-     - 3002:8082
     container_name: dochero-account-service
+    environment:
+      - SPRING_DATASOURCE_URL=${ACCOUNT_SERVICE_DB_URI}
+      - SPRING_DATASOURCE_PASSWORD=${ACCOUNT_SERVICE_DB_PASSWORD}
+      - SPRING_DATASOURCE_USERNAME=${ACCOUNT_SERVICE_DB_USERNAME}
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${ACCOUNT_SERVICE_INTERNAL_PORT}
+    ports:
+      - ${ACCOUNT_SERVICE_PORT}:${ACCOUNT_SERVICE_INTERNAL_PORT}    
   
   api_gateway:
     image: phongvanngo/dochero-api-gateway:latest
-    ports:
-     - 3001:8080
     container_name: dochero-api-gateway
+    environment:
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${API_GATEWAY_INTERNAL_PORT}
+    ports:
+      - ${API_GATEWAY_PORT}:${API_GATEWAY_INTERNAL_PORT}   
