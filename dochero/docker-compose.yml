@@ -1,8 +1,8 @@
 version: '3'
 services:
   server-registry:
-    image: phongvanngo/dochero-server-registry:latest
-    container_name: server-registry
+    image: phongvanngo/dochero-service-registry:latest
+    container_name: dochero-service-registry
     environment:
       - SERVER_PORT=${SERVER_REGISTRY_INTERNAL_PORT}
     ports:
