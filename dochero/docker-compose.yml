@@ -1,6 +1,6 @@
 version: '3'
 services:
-  server-registry:
+  service-registry:
     image: phongvanngo/dochero-service-registry:latest
     container_name: dochero-service-registry
     environment:
