@@ -19,6 +19,18 @@ services:
       - SERVER_PORT=${ACCOUNT_SERVICE_INTERNAL_PORT}
     ports:
       - ${ACCOUNT_SERVICE_PORT}:${ACCOUNT_SERVICE_INTERNAL_PORT}    
+
+  authentication-service:
+    image: phongvanngo/dochero-authentication-service:latest
+    container_name: dochero-authentication-service
+    environment:
+      - SPRING_DATASOURCE_URL=${AUTHENTICATION_SERVICE_DB_URI}
+      - SPRING_DATASOURCE_PASSWORD=${AUTHENTICATION_SERVICE_DB_PASSWORD}
+      - SPRING_DATASOURCE_USERNAME=${AUTHENTICATION_SERVICE_DB_USERNAME}
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${AUTHENTICATION_SERVICE_INTERNAL_PORT}
+    ports:
+      - ${AUTHENTICATION_SERVICE_PORT}:${AUTHENTICATION_SERVICE_INTERNAL_PORT}    
   
   api-gateway:
     image: phongvanngo/dochero-api-gateway:latest
