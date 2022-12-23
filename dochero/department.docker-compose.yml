@@ -1,0 +1,11 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  department-service:
+    image: phongvanngo/dochero-department-service:latest
+    container_name: dochero-department-service
+    environment:
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${DEPARTMENT_SERVICE_INTERNAL_PORT}
+    ports:
+      - ${DEPARTMENT_SERVICE_PORT}:${DEPARTMENT_SERVICE_INTERNAL_PORT}  
