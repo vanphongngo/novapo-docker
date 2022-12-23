@@ -1,0 +1,11 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  document-revision-service:
+    image: phongvanngo/dochero-document-revision-service:latest
+    container_name: dochero-document-revision-service
+    environment:
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${DOCUMENT_REVISION_SERVICE_INTERNAL_PORT}
+    ports:
+      - ${DOCUMENT_REVISION_SERVICE_PORT}:${DOCUMENT_REVISION_SERVICE_INTERNAL_PORT}  
