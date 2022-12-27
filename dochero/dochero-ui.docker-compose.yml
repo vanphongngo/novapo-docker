@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  dochero-ui:
+    container_name: dochero-ui
+    image: phongvanngo/dochero-ui
+    
+    ports:
+      - '8080:80'
