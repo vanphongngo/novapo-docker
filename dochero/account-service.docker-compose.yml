@@ -1,8 +1,14 @@
 # docker-compose.yaml
 version: '3.8'
 services:
-  account_service:
-    image: phongvanngo/dochero-account-service
-    ports:
-     - 3002:8082
+  account-service:
+    image: phongvanngo/dochero-account-service:latest
     container_name: dochero-account-service
+    environment:
+      - SPRING_DATASOURCE_URL=${ACCOUNT_SERVICE_DB_URI}
+      - SPRING_DATASOURCE_PASSWORD=${ACCOUNT_SERVICE_DB_PASSWORD}
+      - SPRING_DATASOURCE_USERNAME=${ACCOUNT_SERVICE_DB_USERNAME}
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=${SERVER_REGISTRY_URL}
+      - SERVER_PORT=${ACCOUNT_SERVICE_INTERNAL_PORT}
+    ports:
+      - ${ACCOUNT_SERVICE_PORT}:${ACCOUNT_SERVICE_INTERNAL_PORT}    
