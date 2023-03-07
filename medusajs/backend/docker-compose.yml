@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: phongvanngo/medusajs-backend
+    image: phongvanngo/medusajs-backend:latest
     container_name: medusa-server-default
     depends_on:
       - postgres
@@ -15,9 +15,6 @@ services:
       PORT: 9000
     ports:
       - "9000:9000"
-    volumes:
-      - .:/app/medusa
-      - node_modules:/app/medusa/node_modules
 
   postgres:
     image: postgres
