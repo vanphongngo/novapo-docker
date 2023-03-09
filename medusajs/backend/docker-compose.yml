@@ -7,8 +7,8 @@ services:
       - postgres
       - redis
     environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-docker
-      REDIS_URL: redis://redis
+      DATABASE_URL: postgres://novapo:novapo@127.0.0.1:3600/novapo-medusa
+      REDIS_URL: redis://127.0.0.1:3700
       NODE_ENV: development
       JWT_SECRET: something
       COOKIE_SECRET: something
@@ -19,16 +19,16 @@ services:
   postgres:
     image: postgres
     ports:
-      - "5432:5432"
+      - "3600:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: medusa-docker
+      POSTGRES_USER: novapo
+      POSTGRES_PASSWORD: novapo
+      POSTGRES_DB: novapo-medusa
 
   redis:
     image: redis
     ports:
-      - "6379:6379"
+      - "3700:6379"
 
 volumes:
   node_modules:
