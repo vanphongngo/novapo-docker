@@ -3,12 +3,9 @@ services:
   backend:
     image: phongvanngo/medusajs-backend:latest
     container_name: medusa-server-default
-    depends_on:
-      - postgres
-      - redis
     environment:
-      DATABASE_URL: postgres://novapo:novapo@127.0.0.1:3600/novapo-medusa
-      REDIS_URL: redis://127.0.0.1:3700
+      DATABASE_URL: postgresql://novapo:novapo@103.142.137.207:3600/novapo-medusa
+      REDIS_URL: redis://103.142.137.207:3700
       NODE_ENV: development
       JWT_SECRET: something
       COOKIE_SECRET: something
