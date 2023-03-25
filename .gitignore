@@ -1,4 +1,5 @@
 np_data
 *.local.env
 *.env
+data
 
