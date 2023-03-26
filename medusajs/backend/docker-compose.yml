@@ -6,7 +6,7 @@ services:
     environment:
       DATABASE_URL: postgresql://novapo:novapo@45.119.85.106:3600/novapo-medusa
       REDIS_URL: redis://45.119.85.106:3700
-      NODE_ENV: development
+      NODE_ENV: production
       JWT_SECRET: something
       COOKIE_SECRET: something
       PORT: 9000
