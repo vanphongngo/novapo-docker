@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  backend:
+    image: phongvanngo/medusajs-backend:latest
+    container_name: medusa-server-default
+    environment:
+      DATABASE_URL: postgresql://novapo:novapo@45.119.85.106:3600/novapo-medusa
+      REDIS_URL: redis://45.119.85.106:3700
+      NODE_ENV: production
+      JWT_SECRET: something
+      COOKIE_SECRET: something
+      PORT: 9000
+    ports:
+      - "9000:9000"
+
+  postgres:
+    image: postgres
+    ports:
+      - "3600:5432"
+    environment:
+      POSTGRES_USER: novapo
+      POSTGRES_PASSWORD: novapo
+      POSTGRES_DB: novapo-medusa
+    volumes:
+      - ./data/medusa-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+    ports:
+      - "3700:6379"
