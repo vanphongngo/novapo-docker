@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  backend:
+    image: phongvanngo/novapo-session-passport
+    container_name: novapo-session-passport
+    ports:
+      - "9000:3000"
