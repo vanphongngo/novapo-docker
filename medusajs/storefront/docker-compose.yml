@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  backend:
+  storefront:
     image: phongvanngo/medusajs-storefront:latest
     container_name: medusa-storefront
     environment:
