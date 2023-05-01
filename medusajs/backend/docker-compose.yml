@@ -1,12 +1,13 @@
 version: "3.8"
 services:
   backend:
-    image: phongvanngo/medusajs-backend
+    image: phongvanngo/medusajs-backend:latest
     container_name: matkinh53-test-v1
     env_file:
       - .env
     environment:
       DATABASE_URL: $DATABASE_URL
+      IMAGE_SERVICE_BASE_URL: $IMAGE_SERVICE_BASE_URL
       REDIS_URL: redis://45.119.85.106:3700
       DATABASE_TYPE: postgres
       JWT_SECRET: kaka
