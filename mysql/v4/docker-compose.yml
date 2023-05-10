@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: novapo@@
+      MYSQL_DATABASE: matkinh53-ghost-uat
+      MYSQL_USER: matkinh53
+      MYSQL_PASSWORD: matkinh53
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./../../novapo-docker-data/mysql/db_data:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+volumes:
+  db_data:

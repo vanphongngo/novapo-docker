@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: novapo
+      MYSQL_DATABASE: matkinh53-ghost-test-v1
+      MYSQL_USER: novapo
+      MYSQL_PASSWORD: ghostnovapo
+      MYSQL_HOST: db
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - 8080:8080
