@@ -2,4 +2,5 @@ np_data
 *.local.env
 *.env
 data
-
+storage
+novapo-docker-data
