@@ -1,0 +1,28 @@
+version: '3'
+services:
+  ghost:
+    image: ghost:latest
+    restart: always
+    ports:
+      - "2368:2368"
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: novapo
+      database__connection__password: your_mysql_password
+      database__connection__database: matkinh53-ghost-uat-v1
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: matkinh53-ghost-uat-v1
+      MYSQL_USER: novapo
+      MYSQL_PASSWORD: novapo@@
+      MYSQL_ROOT_PASSWORD: novapo@@
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  ghost_content:
+  db_data:

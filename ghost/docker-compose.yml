@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  ghost:
+    image: ghost:latest
+    restart: always
+    ports:
+      - "$GHOST_DOCKER_PORT:2368"
+    environment:
+      database__client: mysql
+      database__connection__host: $DB_HOST
+      database__connection__user: $DB_USER
+      database__connection__password: $DB_PASSWORD
+      database__connection__database: $DB_DATABASE
+    volumes:
+      - $VOLUME_CONTENT_PATH:/var/lib/ghost/content
