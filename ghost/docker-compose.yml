@@ -14,5 +14,7 @@ services:
       database__connection__user: $DB_USER
       database__connection__password: $DB_PASSWORD
       database__connection__database: $DB_DATABASE
+      server__host: $SERVER_HOST
+      server__port: $GHOST_DOCKER_PORT
     volumes:
       - $VOLUME_CONTENT_PATH:/var/lib/ghost/content
