@@ -2,11 +2,11 @@ version: '3.9'
 services:
   ghost:
     image: ghost:latest
+    container_name: matkinh53-chemi-ghost-uat
     restart: always
     ports:
       - "$GHOST_DOCKER_PORT:2368"
     environment:
-      url: $URL
       database__client: mysql
       database__connection__host: $DB_HOST
       database__connection__port: $DB_PORT
