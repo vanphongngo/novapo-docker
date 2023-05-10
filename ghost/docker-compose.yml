@@ -9,7 +9,7 @@ services:
       url: $URL
       database__client: mysql
       database__connection__host: $DB_HOST
-      database_connection_port: $DB_PORT
+      database__connection_port: $DB_PORT
       database__connection__user: $DB_USER
       database__connection__password: $DB_PASSWORD
       database__connection__database: $DB_DATABASE
