@@ -7,6 +7,7 @@ services:
     ports:
       - "$GHOST_DOCKER_PORT:2368"
     environment:
+      url: $GHOST_URL
       database__client: mysql
       database__connection__host: $DB_HOST
       database__connection__port: $DB_PORT
