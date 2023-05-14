@@ -6,4 +6,4 @@ services:
     environment:
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: https://api.uat.matkinh53.com
     ports:
-      - "8000:8000"
+      - "$DOCKER_PORT:8000"
