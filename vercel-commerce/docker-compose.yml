@@ -1,9 +1,10 @@
 version: "3.8"
 services:
   backend:
-    image: phongvanngo/medusajs-storefront:latest
-    container_name: medusa-storefront
+    image: phongvanngo/vercel-commerce
+    container_name: vercel-commerce
     environment:
-      NEXT_PUBLIC_MEDUSA_BACKEND_URL: https://api.uat.matkinh53.com
+      SHOPIFY_STOREFRONT_ACCESS_TOKEN: b5dab4f4c4ab42b65a68407a3eaf7d03
+      SHOPIFY_STORE_DOMAIN: bd783f.myshopify.com
     ports:
       - "$DOCKER_PORT:8000"
