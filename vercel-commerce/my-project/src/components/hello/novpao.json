@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_hello_novpaos",
+  "info": {
+    "displayName": "novpao"
+  },
+  "options": {},
+  "attributes": {
+    "novapo": {
+      "type": "richtext",
+      "default": "novapoe",
+      "maxLength": 100
+    }
+  }
+}
