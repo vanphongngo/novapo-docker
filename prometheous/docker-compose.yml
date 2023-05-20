@@ -5,7 +5,6 @@ services:
     container_name: my-prometheus
     networks:
       - grafana-prometheus
-    network_alias: prometheus
     ports:
       - 2200:9090
     volumes:
@@ -17,7 +16,6 @@ services:
     container_name: grafana
     networks:
       - grafana-prometheus
-    network_alias: grafana
     ports:
       - 2201:3000
     restart: unless-stopped
