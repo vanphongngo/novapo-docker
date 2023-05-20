@@ -1,0 +1,27 @@
+version: '3'
+services:
+  my-prometheus:
+    image: prom/prometheus
+    container_name: my-prometheus
+    networks:
+      - grafana-prometheus
+    network_alias: prometheus
+    ports:
+      - 2200:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: '--config.file=/etc/prometheus/prometheus.yml'
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    networks:
+      - grafana-prometheus
+    network_alias: grafana
+    ports:
+      - 2201:3000
+    restart: unless-stopped
+
+
+networks:
+  grafana-prometheus:
