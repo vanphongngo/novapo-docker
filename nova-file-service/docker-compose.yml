@@ -2,8 +2,8 @@ version: 'latest'
 
 services:
   nodejs:
-    image: phongvanngo/nova-file-service-uat
-    container_name: nova-file-service
+    image: phongvanngo/nova-file-service
+    container_name: nova-file-service-uat
     env_file:
       - .env
     environment:
