@@ -1,8 +1,8 @@
-version: '3.8'
+version: 'latest'
 
 services:
   nodejs:
-    image: phongvanngo/nova-file-service
+    image: phongvanngo/nova-file-service-uat
     container_name: nova-file-service
     env_file:
       - .env
@@ -12,4 +12,4 @@ services:
     ports:
       - "$DOCKER_PORT:$PORT"
     volumes:
-      - ./storage:/uploads
+      - $VOLUME_DATA_PATH:/uploads
