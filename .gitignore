@@ -5,3 +5,4 @@ data
 storage
 novapo-docker-data
 ghost/v1
+.data*
