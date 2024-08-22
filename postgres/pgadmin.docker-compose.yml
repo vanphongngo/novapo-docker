@@ -9,12 +9,9 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-ksharkinc2022}
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
-       - pgadmin:/var/lib/pgadmin
-
+       - ./pgadmin:/var/lib/pgadmin
     ports:
       - "54323:80"
-    networks:
-      - postgres
     restart: unless-stopped
 
     # https://github.com/khezen/compose-postgres/blob/master/docker-compose.yml
