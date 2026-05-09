@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:2.39.2
     restart: always
     ports:
       - "$DOCKER_PORT_AGENT_COMMUNICATION:8000"
